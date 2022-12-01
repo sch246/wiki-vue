@@ -1,0 +1,160 @@
+# 简介
+
+
+视频:http://nuevatec.nfshost.com/manual-intro.mov
+
+## Lists
+- '()
+- '(3)
+- '("Hello" "Goodbye")
+- '(Hello 2 you)
+- '((a b c) (1 2 3))
+## symbols
+- (set 'txt "Hello!")
+    - txt => "Hello!"
+- boogieman => nil
+    - 未设置的符号求值为nil(An unset symbol evaluates to nil)
+- (set 'opt1 true 'opt2 nil)
+    - true and nil are symbols
+- true => true(boolean true)
+- nil => nil(boolean false)
+## lambda expression
+- (set 'f (lambda (n) (+ n n)))
+    - (lambda (n) (+ n n))
+- (set 'f (fn (n) (+ n n)))
+    - (lambda (n) (+ n n))
+-  `lambda`关键字不是符号(the `lambda` keyword is not a symbol.)
+    - 它表示这是一种特殊列表:(it's a designator of a special `type` of list:)
+    - lambda列表(the `lambda list`)
+    - (length (lambda (n) (+ n n)))
+        - 2
+    - (first (lambda (n) (+ n n)))
+        - (n)
+    - (nth '(1 0) (lambda (n) (+ n n)))
+        - \+
+- lambda表达式可以用作匿名函数(lambda expressions can be used as anonymous functions)
+    - (apply (lambda (n) (+ n n)) '(123))
+        - 246 functions
+    - (map (lambda (n) (+ n n)) '(3 2 1))
+        - (6 4 2)
+    - ((lambda (n) (+ n n)) 6)
+        - 12
+- lambda表达式可以赋值给符号(a lambda expression can be set to a symbol)
+    - 然后作为函数使用(which can then be used as a function)
+    - (set 'double (lambda (n) (+ n n)))
+    - (double 123)
+        - 246
+    - a shorter way
+        - (define (double n) (+ n n))
+## to these, newLISP adds:
+- arrays
+- implicit
+- dynamic & lexical scoping
+## arrays
+- 对大型列表的快速访问(fast element access for large list)
+- (array 5)
+    - (nil nil nil nil nil)
+- (array 5 (sequence 1 5))
+    - (1 2 3 4 5)
+- (array 10 '(1 2))
+    - (1 2 1 2 1 2 1 2 1 2)
+- > 循环 n 次，没放完也不会报错
+- (array 3 '(1 2))
+    - (1 2 1)
+- 有很多操作数组(`arrays`)的函数(there are many functions that work on arrays)
+    - append
+    - array
+    - array-list
+    - array?
+    - det
+    - first
+    - invert
+    - last
+    - mat
+    - mutiply
+    - nth
+    - rest
+    - setf
+    - slice
+    - transpose
+## implicit indexing
+- can be used on
+    - strings
+    - lists
+    - arrays
+- for `nth`
+    - (set 'lst '(a b c (d e) (f g)))
+    - (lst 0)
+        - a
+    - (lst -1)
+        - (f g)
+    - (lst -1 0)
+        - f
+    - (nth -2 lst)
+        - (d e)
+    - (nth '(-2 1) lst)
+        - e
+    - and strings
+        - ("newLISP" 3)
+        - "L"
+- for `rest` and `slice`
+    - > 看起来这个切片是相对于第一个数字切下的列表而言的
+    - (set 'lst '(a b c d e f g))
+    - (1 lst)
+        - (b c d e f g)
+    - (1 5 lst)
+        - (b c d e f)
+    - (-6 2 lst)
+        - (b c)
+    - (1 -1 lst)
+        - (b c d e f)
+    - (1 100 lst)
+        - (b c d e f g)
+    - (1 -100 lst)
+        - ()
+    - (-100 1 lst)
+        - ERR: invalid list index
+    - (slice lst 1 2)
+        - (b c)
+    - strings, too!
+        - (set 'str "abcdefg")
+        - (1 str)
+            - "bcdegf"
+- for setf
+    - (set 'lst '(a b (c d) (e f)))
+    - (setf (lst 0) 1)
+    - lst
+        - (1 b (c d) (e f))
+    - (setf (lst 2 0) '(123))
+    - lst
+        - (1 b ((1 2 3) d) (e f))
+## dynamic & lexical scoping
+- 动态作用域在上下文**中**使用(Dynamic scoping is used **inside** contexts)
+- 词法作用域在上下文**外**使用(Lexical scoping is used **outside** contexts)
+- newLISP同时利用了这两个优点(newLISP takes advantage of **both** at once)
+- (define (add-three x y z) (print-vars) (+ x y z))
+    - (lambda (x y z) (print-vars) (+ x y z))
+- (define (print-vars) (print "X=" x " Y=" y " Z=" z "\n"))
+    - (lambda () (print "X=" x " Y=" y " Z=" z "\n"))
+- (set 'x 4 'y 5 'z 6)
+    - 6
+- (print-vars)
+    - X=4 Y=5 Z=6
+    - 6
+- (add-three 70 80 90)
+    - X=70 Y=80 Z=90
+    - 240
+- (print-vars)
+    - X=4 Y=5 Z=6
+    - 6
+- 词法作用域是使用单独的命名空间实现的(Lexical scoping is implemented using separate namespaces)
+    - 叫做**上下文**(called **contexts**)
+## for all
+- The result is an easier-to-learn LISP
+- Smaller than most Scheme implementations
+- *350+ built-in functions · about 200k in size*
+- As fast or faster
+- than other popular scripting languages
+- *loads quickly · highly portable*
+- newLISP
+- Puts the <hover><out>:-)</out><in>fun</in></hover> back in LISP

@@ -1,0 +1,18 @@
+
+```
+ ← /lisp
+(s)hell> newlisp
+newLISP v.10.0.1 on OSX IPv4 UTF-8, execute 'newltsp -h' for more info.
+
+> ;; shell games
+> ;; 
+>
+> 
+>
+> ;; based on examples taken from "newLISP Code Patterns" at newlisp.org
+> ;; happy newLISPing
+>
+> (exit)
+ ← /lisp
+(s)hell>
+```
