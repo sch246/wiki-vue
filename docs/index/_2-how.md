@@ -139,9 +139,7 @@ file -> Add Local repository...(ctrl + O)
 
 ![](https://s2.loli.net/2022/07/27/NB8FtS9h1gWZQaL.png)
 
-<details>
-
-<summary>如果已经创建了仓库，更改为私有或公共</summary>
+::: details 如果已经创建了仓库，更改为私有或公共
 
 仓库的settings
 
@@ -155,11 +153,9 @@ file -> Add Local repository...(ctrl + O)
 
 ![](https://s2.loli.net/2022/07/27/1DJbNdzg3LSmf7M.png)
 
-</details>
+:::
 
-<details>
-
-<summary>如果已经创建了仓库，删除仓库</summary>
+::: details 如果已经创建了仓库，删除仓库
 
 仓库的settings
 
@@ -183,7 +179,7 @@ file -> Add Local repository...(ctrl + O)
 
 如果提示没权限，可以按`shift`+`Delete`强制删除(注意，这种方式删除的文件不会被放到回收站，需要专门的软件才可能回复)
 
-</details>
+:::
 
 然后去 vercel 用 github 账号登陆
 
@@ -211,9 +207,7 @@ FRAMEWORK PRESET，也就是预设，有`Docusaurus 2`可选
 
 随后你每次本地更新网站，并且提交到 github 的仓库后，vercel 都能检测到变动，并且更新实际的网站
 
-<details>
-
-<summary>如果出了问题生成失败了</summary>
+::: details 如果出了问题生成失败了
 
 在项目页面切换到`Deployments`(部署)选项卡，点击最上面的一次记录，或者直接点击项目下面的那一栏
 
@@ -223,7 +217,7 @@ FRAMEWORK PRESET，也就是预设，有`Docusaurus 2`可选
 
 ![](https://s2.loli.net/2022/07/23/XZhsK7NTkMcrdlt.png)
 
-</details>
+:::
 
 ## 域名绑定
 

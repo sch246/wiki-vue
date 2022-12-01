@@ -237,9 +237,7 @@ test
 None
 ```
 
-<details>
-
-<summary>QAQ</summary>
+::: details QAQ
 
 ### 处理事件
 
@@ -278,7 +276,7 @@ None
 
 但是即使能执行各种语句和修改，也只有特定的东西才能被保存，中途修改的类什么的是不能被保存的，，残念
 
-</details>
+:::
 
 ## 学习协程
 

@@ -39,8 +39,7 @@ import Cover from '@site/src/components/cover/main';
 
 而 lisp 里面有个`cont`对象(`continuation`)，它可以用来实现`yield`
 
-<details>
-<summary>`yield`是什么？</summary>
+::: details `yield`是什么？
 
 - [知乎 - 如何理解Python中的yield用法?](https://zhuanlan.zhihu.com/p/268605982)
 - [CSDN - yield( )函数的使用](https://blog.csdn.net/wordwarwordwar/article/details/85554847)
@@ -68,7 +67,7 @@ def gen(i=0):
 
 继续调用`迭代器`才是运行函数中的代码块
 
-</details>
+:::
 
 ## cont
 

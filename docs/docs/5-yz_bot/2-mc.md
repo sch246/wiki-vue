@@ -24,13 +24,11 @@ mc_startbash = './run.sh'   # 相对于mc的路径，它的启动脚本在哪里
 
 为了能读取 screen 的输出，需要让 bot 启动对应的 screen 和 mc服务端
 
-<details>
-
-<summary>0.4.1</summary>
+::: details 0.4.1
 
 screen 需要保证它的 log 输出是默认的，也就是`screenlog.0`
 
-</details>
+:::
 
 需要在服务器的配置中开启 rcon 才能使用完整的功能，虽然不开也不是不能用就是）
 

@@ -10,12 +10,13 @@
 绿色表示函数式编程，红色表示命令式，过程式的编程，橙色是支持面向对象，黄色是支持反射
 
 黑色是逻辑式编程，粉色是支持元编程
-<details>
-<summary>点击展开图片</summary>
+
+::: details 点击展开图片
 
 [![编程语言历史](https://s2.loli.net/2022/05/11/P5Ok6GJ3FfSmDa4.png)](pathname:///img/codelang)
 
-</details>
+:::
+
 # 语言受欢迎程度
 
 ## [github](https://octoverse.github.com/)

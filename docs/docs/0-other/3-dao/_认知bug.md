@@ -10,12 +10,11 @@ https://mp.weixin.qq.com/s/W-EdSvgab2UfUg8-wHkyEA
 
 [https://wiki-power.com/读《黑客与画家》#自由思想](https://wiki-power.com/%E8%AF%BB%E3%80%8A%E9%BB%91%E5%AE%A2%E4%B8%8E%E7%94%BB%E5%AE%B6%E3%80%8B#%E8%87%AA%E7%94%B1%E6%80%9D%E6%83%B3)
 
-<details>
-<summary>聊天记录</summary>
+::: details 聊天记录
 
 ![](https://s2.loli.net/2022/05/06/MSsthCV2YjveR75.jpg)
 
-</details>
+:::
 
 假设：人可以相信逻辑上荒谬的事物
 
@@ -25,8 +24,7 @@ https://mp.weixin.qq.com/s/W-EdSvgab2UfUg8-wHkyEA
 
 :::
 
-<details>
-<summary>例子</summary>
+::: details 例子
 
 自我认知与行动矛盾，且外部理由不足 --> 认知与行动无法调和 --> 认知奔溃，逻辑瓦解
 
@@ -44,7 +42,7 @@ https://mp.weixin.qq.com/s/W-EdSvgab2UfUg8-wHkyEA
 
 大量的外部理由会抑制兴趣
 
-</details>
+:::
 
 人为什么会相信
 
