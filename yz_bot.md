@@ -1,8 +1,5 @@
 # 柚子bot
 
-
-import Cover from '@site/src/components/cover/main';
-
 bot，第一次重构，由于古镇天的建议
 
 虽然我又想重构了，不过鉴于QQ的历史记录功能太差了所以还是加紧让它能用吧，不用来干啥主要是用来记录聊天

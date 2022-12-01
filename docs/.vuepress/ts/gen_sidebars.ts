@@ -11,8 +11,8 @@ let FILE_MATCH = /^(\d+)-([^.]+)/;
 let SKIP_MATCH = /^[._]/
 
 walkDir(root,
-  (stats, n)=>(SKIP_MATCH.exec(n) || !(stats.isDirectory() || FILE_MATCH.exec(n))),
-  // (stats, n)=>SKIP_MATCH.exec(n),
+  // (stats, n)=>(SKIP_MATCH.exec(n) || !(stats.isDirectory() || FILE_MATCH.exec(n))),
+  (stats, n)=>SKIP_MATCH.exec(n),
   (_, link, _0, files)=>{
     // let f =(x:string)=>parseInt(FILE_MATCH.exec(x)??Infinity[1])
     // 生成对象，键是所有目录，值是目录下的文件名(排序好)
