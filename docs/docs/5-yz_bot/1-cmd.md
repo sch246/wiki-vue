@@ -123,7 +123,7 @@ a, b, c, last = read_params(last, 3)
 
 通过`cache.getlog(msg)`可以通过一条 msg 获取这个聊天区域的最近消息列表
 
-:::tip
+::: tip
 
 注意，消息列表的存储是最近的放在前面，如果消息列表是lst，那么最近的消息要使用`lst[0]`来获取
 
@@ -173,7 +173,7 @@ def run(body:str):
 
 ---
 
-:::caution
+::: warning
 
 需要注意的是，yield 后，同一个人在同一个地方发送的任何消息，包括`.`开头的命令，都会被阻塞接收作为 reply
 

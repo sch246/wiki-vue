@@ -6,7 +6,7 @@ title: 知识总量？
 
 import Cover from '@site/src/components/cover/main';
 
-:::tip
+::: tip
 我认为一个人需要的知识或者智慧总量是非常有限的，一切应该都能容纳在一个框架内
 :::
 

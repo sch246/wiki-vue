@@ -19,7 +19,7 @@ https://mp.weixin.qq.com/s/W-EdSvgab2UfUg8-wHkyEA
 
 假设：人可以相信逻辑上荒谬的事物
 
-:::caution 问题从何而来
+::: warning 问题从何而来
 
 自我辩护 <- 认知(信仰)崩塌，努力被否定
 
@@ -48,7 +48,7 @@ https://mp.weixin.qq.com/s/W-EdSvgab2UfUg8-wHkyEA
 
 人为什么会相信
 
-:::tip 这是坏的吗
+::: tip 这是坏的吗
 
 成功就当是自己好，失败就怪运气差条件差
 

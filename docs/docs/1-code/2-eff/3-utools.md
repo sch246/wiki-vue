@@ -15,7 +15,7 @@ hosts
 - 找到hosts文件位置
 - 修改hosts
 - 创立hosts预设并切换
-:::caution 注意
+::: warning 注意
 双击会应用选项，这可能导致hosts被覆盖<br/>
 操作前务必备份
 :::

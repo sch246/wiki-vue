@@ -63,7 +63,7 @@ hum..?
 
 - http://learnyouahaskell.com
 
-:::caution 不要安装 Haskell Platform
+::: warning 不要安装 Haskell Platform
 
 直接使用 Stack，而不要遵循 Haskell.org 里面的说明。
 

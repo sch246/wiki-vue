@@ -6,7 +6,7 @@
 - [haskell](https://www.haskell.org/)
 - [本站 - Haskell](/Computer/code/fun/Haskell)
 
-:::tip Haskell 开头的 Try it! 挺有趣的
+::: tip Haskell 开头的 Try it! 挺有趣的
 
 :::
 

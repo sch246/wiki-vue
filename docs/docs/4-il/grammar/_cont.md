@@ -76,7 +76,7 @@ def gen(i=0):
 - [知乎 - 如何解释 Lisp 中 call/cc 的概念？ - 脚趾头的回答](https://www.zhihu.com/question/21954238/answer/522888860)
 - [知乎 - C 语言如何实现 continuation？ - TASKCTL的回答](https://www.zhihu.com/question/30918811/answer/1291388068)
 
-:::caution
+::: warning
 
 lisp中`cont`的使用是通过`call/cc`触发的，它会将当前局部变量的`cont`塞进它的参数(得是一个函数)中运行
 
@@ -114,7 +114,7 @@ lisp中`cont`的使用是通过`call/cc`触发的，它会将当前局部变量�
 
 很显然，这个返回到原来位置的性质可以用来保存函数运行状态，可以用来实现`yield`
 
-:::tip 补充一点
+::: tip 补充一点
 
 虽然上面一直是将它和函数一起说的，函数也确实可以带`cont`，不过要获得`cont`是可以用专门的操作符创建的
 
@@ -138,7 +138,7 @@ lisp中`cont`的使用是通过`call/cc`触发的，它会将当前局部变量�
 
 如果直接把调用栈改成调用树的话，`cont`对象大概只需要记录当前运行到哪一段代码，以及当前在这个树的哪个位置
 
-:::caution
+::: warning
 
 实际上我目前为止的话语具有误导性，`cont`生成的并不是树，而是将栈，将函数运行状态复制一个
 

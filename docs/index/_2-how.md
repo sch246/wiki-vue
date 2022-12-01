@@ -12,7 +12,7 @@
 
 然后找个顺眼的文件夹，在该目录下运行以下命令
 
-:::tip 如果不知道运行命令是怎么回事
+::: tip 如果不知道运行命令是怎么回事
 
 > 先打开指定的文件夹（explore中），然后选中地址栏（此时默认选中了地址栏中的所有路径，将其覆盖即可），然后输入cmd，回车，便可以打开对应路径的cmd窗口了。
 
@@ -56,7 +56,7 @@ Happy building awesome websites!
 
 这个时候其实网站已经创建好了可以编辑和运行了
 
-:::tip
+::: tip
 如果已经创建了但是没有改成想要的名字，可以修改`package.json` 1 处和`package-lock.json` 2 处
 :::
 
@@ -93,7 +93,7 @@ client (webpack 5.73.0) compiled successfully
 
 - [docusaurus.config.js api](https://www.docusaurus.io/zh-CN/docs/api/docusaurus-config)
 
-:::tip
+::: tip
 
 如果是服务器，记得在服务器供应商那里的防火墙放行3000端口，并且找到你服务器的公网ip，在浏览器地址栏里输入"(你的ip):3000"
 
@@ -105,7 +105,7 @@ client (webpack 5.73.0) compiled successfully
 
 为了使用 vercel 托管，需要一个 github 账号，然后创建一个公共仓库
 
-:::caution
+::: warning
 
 这意味着网站的所有内容，全部代码对所有人都是透明的，务必不要包含隐私信息
 
@@ -233,7 +233,7 @@ FRAMEWORK PRESET，也就是预设，有`Docusaurus 2`可选
 
 vercel 不是国内的服务器，所以不需要备案，去阿里云或者腾讯云随便什么云买个域名就行，国外的话，似乎 Doman.com 和 NameCheap 比较出名，我的是在Name.com买的））当时以为国内买的域名也要备案，悲
 
-:::caution
+::: warning
 
 不要图便宜去Godaddy买域名，阿里云一个.com域名(只要不是什么特殊的域名)一年续订也只有70左右
 
