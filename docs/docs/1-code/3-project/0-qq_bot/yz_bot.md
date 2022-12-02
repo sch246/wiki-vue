@@ -106,110 +106,16 @@ class reboot:
 
 以下是.link的帮助信息
 
-```
-格式: .link\n...\nto\n...
-.link [reload | list | get <num> | del <num>]
-用途: 建立输入映射，可以使输入A等价于输入B
-例子: .link\n运行{A}\nto\n.py{A}
-支持正则表达式，输入输出可填入替换符
-替换符:用大括号括起来的允许数字字母下划线作为命名的内容{\w+}，同时输入在输入输出时，将会匹配内容并替换，若命名开头为大写字母，则匹配包括空白符(包括换行符)在内的所有字符，否则仅匹配非空白符\ n输入输出可以包含同名替换符
-替换符的原理是命名组，例如，在输入部分，(?P<name>\S+)等价于第一个{name}，(?P<A>[\S\s]+)等价于第一个{A}
-```
-
-### rep_str
-
-link命令的基础在于替换符
-
-要实现这个我第一时间想到了re的命名组，于是就做了）
-
-以下是实现替换的函数
-
-```python
-def trans_rep(src_rep:str):
-    src_ = re.compile('{(\w+?)}')
-    keys = set()
-    def f(match:re.Match):
-        key = match.group(1)
-        if key in keys:
-            rtn = f'(?P={key})'
-        else:
-            if key[0].isupper():
-                rtn= f'(?P<{key}>[\S\s]+)'
-            else:
-                rtn= f'(?P<{key}>\S+)'
-        keys.add(key)
-        return rtn
-    # 得检测重复的group并替换成引用
-    return src_.sub(f,src_rep)
-
-def rep_str(rep:str, tar:str, src:str):
-    re_rep = re.compile(trans_rep(rep))
-    match = re_rep.match(src)
-    if not match:
-        return False
-    else:
-        for key, value in match.groupdict().items():
-            tar = tar.replace(f'{{{key}}}',value)
-        return tar
-
-def set_rep(rep:str, tar:str):
-    return lambda src:rep_str(rep,tar,src)
-```
-
-```python title="使用例"
->>> f = set_rep('{a}{a}{name}','{name}:不要{a}{name}!')        
->>> f('打打柚子') 
-'柚子:不要打柚子!'
-```
-
-由于原理是命名组，因此使用(?P< name>xx)使用正则表达式来捕获也是可行的
-
-### 命令创建器
-
-使用link甚至可以创造出新的命令
-
-link检测不同部分的正则表达式是
-```
-\s*\n([\S\s]+?)\nto[\s]*\n([\S\s]+)
-```
-
-所以它会捕获最近的一个`\nto\n`
-
-稍加修改可以让被捕获的命令允许含有to，不过那是后话了
-
-以下为建立问答命令的命令
-
-``` title="发送消息"
-.link
-.link[\s]*
-{A}
-reply[\s]*
-{B}
-to
-.link
-{A}
-to
-.py back=0
-s = {B}
-Msg.send(s)
-```
-
-接着只需
-
-``` title="发送消息"
-.link
-柚子{a}
-reply
-'你也{a}，'+msg['sender']['nickname']
-```
-
-于是之后群里有人说`柚子早安`时bot就会回复`你也早安，{名字}`了
-
-::: warning 注意
-
-py命令按照常理不是谁都能用的，所以之后可能需要对link进行更改
-
-至于现在，还没设置权限系统，随便啦
-
-:::
-
+> 格式: .link\\n...\\nto\\n...
+>
+> .link [reload | list | get < num> | del < num>]
+>
+> 用途: 建立输入映射，可以使输入A等价于输入B
+>
+> 例子: .link\\n运行{A}\\nto\\n.py{A}
+>
+> 支持正则表达式，输入输出可填入替换符
+>
+> 替换符:用大括号括起来的允许数字字母下划线作为命名的内容{\w+}，同时输入在输入输出时，将会匹配内容并替换，若命名开头为大写字母，则匹配包括空白符(包括换行符)在内的所有字符，否则仅匹配非空白符\ n输入输出可以包含同名替换符
+>
+> 替换符的原理是命名组，例如，在输入部分，(?P< name>\S+)等价于第一个{name}，(?P< A>[\S\s]+)等价于第一个{A}
