@@ -183,51 +183,30 @@ link检测不同部分的正则表达式是
 稍加修改可以让被捕获的命令允许含有to，不过那是后话了
 
 以下为建立问答命令的命令
-{{console.log(0)}}
-```
-{{console.log(1)}}
+
+```text:v-pre
 .link
-{{console.log(2)}}
 .link[\s]*
-{{console.log(3)}}
 {A}
-{{console.log(4)}}
 reply[\s]*
-{{console.log(5)}}
 {B}
-{{console.log(6)}}
 to
-{{console.log(7)}}
 .link
-{{console.log(8)}}
 {A}
-{{console.log(9)}}
 to
-{{console.log(10)}}
 .py back=0
-{{console.log(11)}}
 s = {B}
-{{console.log(12)}}
 Msg.send(s)
-{{console.log(13)}}
 ```
 
-{{console.log(14)}}
 接着只需
 
-{{console.log(15)}}
-```
-{{console.log(16)}}
+```text:v-pre
 .link
-{{console.log(17)}}
 柚子{a}
-{{console.log(18)}}
 reply
-{{console.log(19)}}
 '你也{a}，'+msg['sender']['nickname']
-{{console.log(20)}}
 ```
-{{console.log(21)}}
 
 于是之后群里有人说`柚子早安`时bot就会回复`你也早安，{名字}`了
 
