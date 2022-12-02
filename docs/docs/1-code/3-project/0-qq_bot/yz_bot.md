@@ -108,7 +108,7 @@ class reboot:
 
 > 格式: .link\\n...\\nto\\n...
 >
-> .link \[reload | list | get < num> | del < num>\]
+> .link \[reload | list | get < num\> | del < num\>\]
 >
 > 用途: 建立输入映射，可以使输入A等价于输入B
 >
