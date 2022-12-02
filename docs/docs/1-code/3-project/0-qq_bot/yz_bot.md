@@ -184,3 +184,18 @@ link检测不同部分的正则表达式是
 
 以下为建立问答命令的命令
 
+``` title="发送消息"
+.link
+.link[\s]*
+{A}
+reply[\s]*
+{B}
+to
+.link
+{A}
+to
+.py back=0
+s = {B}
+Msg.send(s)
+```
+
