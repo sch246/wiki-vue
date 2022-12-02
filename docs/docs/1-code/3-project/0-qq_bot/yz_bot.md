@@ -153,7 +153,7 @@ def rep_str(rep:str, tar:str, src:str):
         return False
     else:
         for key, value in match.groupdict().items():
-            tar = tar.replace(f'{{ "{key}" }}',value)
+            tar = tar.replace('{%s}'%(key),value)
         return tar
 
 def set_rep(rep:str, tar:str):
