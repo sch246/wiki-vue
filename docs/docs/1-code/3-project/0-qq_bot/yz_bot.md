@@ -128,37 +128,7 @@ link命令的基础在于替换符
 
 以下是实现替换的函数
 
-```python:v-pre
-def trans_rep(src_rep:str):
-    src_ = re.compile('{(\w+?)}')
-    keys = set()
-    def f(match:re.Match):
-        key = match.group(1)
-        if key in keys:
-            rtn = f'(?P={key})'
-        else:
-            if key[0].isupper():
-                rtn= f'(?P<{key}>[\S\s]+)'
-            else:
-                rtn= f'(?P<{key}>\S+)'
-        keys.add(key)
-        return rtn
-    # 得检测重复的group并替换成引用
-    return src_.sub(f,src_rep)
 
-def rep_str(rep:str, tar:str, src:str):
-    re_rep = re.compile(trans_rep(rep))
-    match = re_rep.match(src)
-    if not match:
-        return False
-    else:
-        for key, value in match.groupdict().items():
-            tar = tar.replace('{%s}'%(key),value)
-        return tar
-
-def set_rep(rep:str, tar:str):
-    return lambda src:rep_str(rep,tar,src)
-```
 
 ```python title="使用例"
 >>> f = set_rep('{a}{a}{name}','{name}:不要{a}{name}!')        
