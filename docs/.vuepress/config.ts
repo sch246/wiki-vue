@@ -1,7 +1,9 @@
 import {defineUserConfig} from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
-import {sideBarValue} from './ts/gen_sidebars'
-import {navbar} from './ts/gen_navabars'
+// import {sideBarValue} from './ts/gen_sidebars'
+// import {navbar} from './ts/gen_navabars'
+
+import autoBar from 'vuepress-auto-bar';
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -9,11 +11,14 @@ export default defineUserConfig({
   description: "www",
   head: [["link", { rel: "icon", href: "/images/logo.ico" }]],
   theme: defaultTheme({
-    navbar: navbar,
     logo: "/images/logo.png",
-    repo: "sch246/wiki",
+    repo: "sch246/wiki-vue",
+    navbar: autoBar.navbar,
+    sidebar: autoBar.sidebar,
     sidebarDepth: 0,
-    sidebar: sideBarValue,
+    editLink:false,
+    lastUpdatedText:'最后更新于',
+    contributors:false,
   }),
 });
 
