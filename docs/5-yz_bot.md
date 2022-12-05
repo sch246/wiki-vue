@@ -1,6 +1,5 @@
 # 柚子bot
 
-import Cover from '@site/src/components/cover/main';
 
 - [github项目地址](https://github.com/sch246/yz_bot)
 
@@ -23,7 +22,7 @@ import Cover from '@site/src/components/cover/main';
 `auto_reboot`可以在 bot 出现异常时重新启动而不是关闭掉，不过如果启动阶段就出现异常的话会导致无限重启
 
 bot 使用 http 通信，连接 go-cqhttp 的地址需要在 `_code/bot/connect_with_http.py`设置
-<Cover>我从来没有想过 bot 需要开多个号的状况！也没有想过可能有多个bot在同个群的状况！(叉腰)</Cover>
+##我从来没有想过 bot 需要开多个号的状况！也没有想过可能有多个bot在同个群的状况！(叉腰)##
 
 ## 文件结构
 

@@ -1,7 +1,6 @@
 # 添加命令的方法(可跳过)
 
 
-import Cover from '@site/src/components/cover/main';
 
 ## 开始
 

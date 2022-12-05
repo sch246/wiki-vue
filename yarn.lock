@@ -1513,10 +1513,10 @@ vue@^3.2.41:
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
-vuepress-auto-bar@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vuepress-auto-bar/-/vuepress-auto-bar-1.0.1.tgz#6f5acbd2b925f89a37b8bdf331dab7f0a1dad813"
-  integrity sha512-WHlg5ZlAgw1UeUP9SDnDhq8dKcxH/WvDmq6BGR6py8eYXBmenndGfSY32s3rWQjaWQzZJamyAiCm8A/1fRjk1A==
+vuepress-auto-bar@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vuepress-auto-bar/-/vuepress-auto-bar-1.0.3.tgz#e1ef75337e5bd2f0193c3c3792999af2e7766532"
+  integrity sha512-deNsFfa3jzhnzjDwFYBPAtV12etJ/+BsPBJcvty2I44UCxzgkHiy9PsFlKOSe1ufjwNYjPaqbq4vpzEHx4uk+A==
 
 vuepress-vite@2.0.0-beta.53:
   version "2.0.0-beta.53"

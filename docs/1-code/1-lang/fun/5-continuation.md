@@ -158,9 +158,8 @@ continuation 是个时空隧道！是个传送门！
 
 > 这个语言特性，称为尾调用优化（tail call optimization）。
 
-import Cover from '@site/src/components/cover/main';
 
-<Cover>尾调用优化使得 lisp 可以用递归写循环而不用担心溢出</Cover>
+##尾调用优化使得 lisp 可以用递归写循环而不用担心溢出##
 
 ## 调用栈和调用图
 

@@ -545,7 +545,7 @@ def update_merge(d1, d2):
         ]
 ```
 
-<Cover>这太疯狂了</Cover>
+##这太疯狂了##
 
 让我解析下
 

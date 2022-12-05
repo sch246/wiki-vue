@@ -11,7 +11,7 @@
 
 ## 什么是数学
 
-<cover>书单+1</cover>
+##书单+1##
 
 ![](https://pic3.zhimg.com/80/v2-df98054a83fe8f7b5319dcd2fc1f5362_720w.jpg)
 

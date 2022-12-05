@@ -1,7 +1,6 @@
 # continuation？
 
 
-import Cover from '@site/src/components/cover/main';
 
 ## 什么是`continuation`？
 

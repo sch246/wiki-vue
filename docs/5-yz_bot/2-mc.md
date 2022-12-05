@@ -1,7 +1,6 @@
 # MC服务器终端
 
 
-import Cover from '@site/src/components/cover/main';
 
 柚子bot 可以作为 Minecraft 服务器的终端使用
 
@@ -48,7 +47,7 @@ rcon 的返回会更快，而 screen 的返回可能会延迟好几秒(在0.4.2�
 
 但好处是 screen 可以获取到`say`这种命令的输出
 
-<Cover>我寻思这么麻烦不如写个mod</Cover>
+##我寻思这么麻烦不如写个mod##
 
 bot 重启会断开与 mc 的 rcon 的连接，再次使用`start_mc()`就行，挺无脑的
 
