@@ -4,7 +4,6 @@ import { defaultTheme } from "@vuepress/theme-default";
 // import {navbar} from './ts/gen_navabars'
 
 import autoBar from "vuepress-auto-bar";
-import {tokenize, postProcess} from './mdit/cover'
 
 export default defineUserConfig({
   lang: "zh-CN",
@@ -21,9 +20,27 @@ export default defineUserConfig({
     lastUpdatedText: "最后更新于",
     contributors: false,
   }),
+  markdown:{
+    code:{
+      lineNumbers:4,
+    },
+  },
   extendsMarkdown: (md) => {
-    md.inline.ruler.before('strikethrough',"cover", tokenize)
-    md.inline.ruler2.before('strikethrough',"cover", postProcess);
+    const f = md.renderer.rules.text ?? ((tokens, idx)=>tokens[idx].content)
+    md.renderer.rules.text = (...args)=>f(...args)
+      .replace(/##(.+)##/g, '<cover title="你知道的太多了">$1</cover>')
   },
 });
+
+// function defaultText(tokens, idx){
+//   let str = tokens[idx].content
+//   return (/[&<>"]/.test(str))
+//   ?  str.replace(/[&<>"]/g, (ch)=> ({
+//       '&': '&amp;',
+//       '<': '&lt;',
+//       '>': '&gt;',
+//       '"': '&quot;'
+//     }[ch]))
+//   : str;
+// }
 
