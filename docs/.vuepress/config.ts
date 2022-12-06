@@ -16,7 +16,7 @@ export default defineUserConfig({
     navbar: bar.getNavbar(),
     sidebar: bar.getSidebar(),
     sidebarDepth: 0,
-    editLink: false,
+    // editLink: false,
     lastUpdatedText: "最后更新于",
     contributors: false,
   }),

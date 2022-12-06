@@ -41,9 +41,9 @@ Vue.js 是一个 [JavaScript](/1-code/4-web/0-base/2-js.md)(简称 JS) 框架
 
 - [Github](/1-code/0-base/github.md)
 
-那么作为准备，在 github 上创建新的仓库，并 clone 到本地你想编辑网站的位置
+那么作为准备，在本地创建个仓库并发布到 Github
 
-
+或者在 Github 上创建新的仓库，并 clone 到本地你想编辑网站的位置
 
 ### Node.js 项目
 
@@ -207,4 +207,84 @@ $ vuepress dev docs
 
 ## 使用 Vercel 托管网站
 
-进入
+- [Vercel](https://vercel.com)
+
+注册过程略
+
+点击 `+ New Project`，如果是手机打开的可能只能看到一个显眼的黑色的`+`按钮，反正就是那个
+
+![](https://s2.loli.net/2022/07/23/ysCfOVPrj4qn2eA.png)
+
+选择 Github 项目
+
+![](https://s2.loli.net/2022/12/07/cJGq6DS43OtTY51.png)
+
+选择你刚刚创建的项目，`import`
+
+![](https://s2.loli.net/2022/12/07/JrCxkRw1EKmZDdG.png)
+
+Framework Preset，也就是预设，有`VuePress`可选，注意不要选成了`VitePress`
+
+![](https://s2.loli.net/2022/12/07/n5J14lxIPBDFc3t.png)
+
+其它不用管，直接创建就是
+
+网站的运行环境在这里编辑
+
+![](https://s2.loli.net/2022/12/07/41nUwyvA2SWPOXm.png)
+
+如果不知道生成的静态网站在哪里的话可以自己在本地运行一下然后找一找
+
+网站就托管完了，vercel 会提供个可访问的域名供你测试网站，下面是我的网站的样子
+
+![](https://s2.loli.net/2022/12/07/S1DzUXjlgVfRveZ.png)
+
+随后你每次本地更新网站，并且提交到 github 的仓库后，vercel 都能检测到变动，并且更新实际的网站
+
+::: details 如果出了问题生成失败了
+
+在项目页面切换到`Deployments`(部署)选项卡，点击最上面的一次记录
+
+生成过程出了问题项目下面的那一栏也会显示：
+
+![生成过程出了问题这里也会显示](https://s2.loli.net/2022/12/07/1nNBiJOwtPHmgyX.png)
+
+可以以此查看 log 进行 debug
+
+![](https://s2.loli.net/2022/07/23/FlWOU8n1iKTGQdv.png)
+
+![](https://s2.loli.net/2022/07/23/XZhsK7NTkMcrdlt.png)
+
+:::
+
+## 域名绑定
+
+你可能意识到我的这个网站不是vercel提供的域名
+
+为了使用其它域名进行访问，首先你需要有一个域名
+
+Vercel 不是国内的服务器，所以不需要备案，Vercel 网站本身也可以买域名，不过贵
+
+国内可以买域名的地方有阿里云或者腾讯云之类的
+
+国外的话，namesilo 和 name.com 比较好
+
+我的是在Name.com买的
+
+可以使用这个网址来比较域名的价格
+
+- [https://www.domcomp.com/](https://www.domcomp.com/)
+
+::: warning
+不要图便宜去 Godaddy 买域名，便宜没好货
+
+https://www.zhihu.com/question/21054601
+:::
+
+有了域名后去你的项目 -> settings -> Domains
+
+添加域名，然后按照提示操作就行了，这里略
+
+## 网站自定义
+
+TODO
