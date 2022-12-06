@@ -1,20 +1,20 @@
 import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
-// import {sideBarValue} from './ts/gen_sidebars'
-// import {navbar} from './ts/gen_navabars'
 
-import autoBar from "vuepress-auto-bar";
+
+import {AutoBar} from "vuepress-auto-bar";
+let bar = new AutoBar();
 
 export default defineUserConfig({
   lang: "zh-CN",
   title: "sch246's wiki",
   description: "www",
-  head: [["link", { rel: "icon", href: "/images/logo.ico" }]],
+  head: [["link", { rel: "icon", href: "/images/logo.svg" }]],
   theme: defaultTheme({
     logo: "/images/logo.png",
     repo: "sch246/wiki-vue",
-    navbar: autoBar.navbar,
-    sidebar: autoBar.sidebar,
+    navbar: bar.getNavbar(),
+    sidebar: bar.getSidebar(),
     sidebarDepth: 0,
     editLink: false,
     lastUpdatedText: "最后更新于",

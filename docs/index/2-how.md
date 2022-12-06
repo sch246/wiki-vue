@@ -2,16 +2,20 @@
 
 你可以在[首页](/)看到这样的字样:
 
-> ###### [sch246](/index/3-who) | Built with [VuePress](https://v2.vuepress.vuejs.org/zh/) | Hosted in [Vercel](https://vercel.com)
-
-创建只有2步
-
-- [使用 Vuepress 搭建网站](#使用-vuepress-搭建网站)
-- [使用 Vercel 托管网站](#使用-vercel-托管网站)
+> ###### [sch246](/index/3-who.md) | Built with [VuePress](https://v2.vuepress.vuejs.org/zh/) | Hosted in [Vercel](https://vercel.com)
 
 ::: warning 使用 Vercel + Github 托管意味着网站的所有内容，全部代码对所有人都是透明的，务必不要包含隐私信息
 比如你可以点击本站导航栏的 Github 链接查看本网站项目
 :::
+
+如果你不确信这是你想要的，可以参考
+
+- [为什么不是 ...?](https://v2.vuepress.vuejs.org/zh/guide/#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF)
+- [网站搭建分类](/1-code/4-web/0-web.md)
+
+搭建本网站的步骤如下:
+
+[[toc]]
 
 ## 使用 Vuepress 搭建网站
 
@@ -24,9 +28,9 @@
 ::: tip 什么是 VuePress?
 > VuePress 是一个以 Markdown 为中心的静态网站生成器。你可以使用 Markdown 来书写内容（如文档、博客等），然后 VuePress 会帮助你生成一个静态网站来展示它们。
 
-Vuepress 基于 [Vue.js](/1-code/4-web/3-frame/1-vue)
+Vuepress 基于 [Vue.js](/1-code/4-web/3-frame/1-vue.md)
 
-Vue.js 是一个 [JavaScript](/1-code/4-web/0-base/2-js)(简称 JS) 框架
+Vue.js 是一个 [JavaScript](/1-code/4-web/0-base/2-js.md)(简称 JS) 框架
 :::
 
 ### Github
@@ -35,44 +39,18 @@ Vue.js 是一个 [JavaScript](/1-code/4-web/0-base/2-js)(简称 JS) 框架
 只是为了能方便更新到 github 上，为后面步骤作准备，如果只是单纯想在本地测试网站，本节并不是必要的
 :::
 
-- [菜鸟教程 - Github 简明教程](https://www.runoob.com/w3cnote/git-guide.html)
-
-上面的教程可以不看，可以直接使用 [Github 客户端](https://desktop.github.com/)，不用安装 git，直接操作图形化界面就行
-
-理解 git 是如何工作的可以看这个##，当然自己一个人的话 add commit push 一梭子就够用了##
-
-- [B站 - 十分钟学会正确的github工作流，和开源作者们使用同一套流程](https://www.bilibili.com/video/BV19e4y1q7JJ)
-
-当一个文件夹被作为本地仓库时，git 会在里面创建名为`.git`的隐藏文件夹作为标记和存储
-
-它可以将本地仓库内的所有文件和文件夹的状态存档，并随时与目前的文件比较，或者执行还原的操作
-
-若想进行存档，可以使用`add`标记更改，可精确到行
-
-使用`commit`把被标记的更改存档
-
-使用`push`把存档同步到 Github
-
-若删除`.git`，等同于删除存档，同时也意味着这不再是本地仓库，而变回了普通目录
-
-可以配置`.gitignore`文件来忽略一些文件不被检测和存档，这在忽略临时文件时很有必要
-
-- [CSDN - .gitignore配置语法完全版](https://blog.csdn.net/le_17_4_6/article/details/92789993)
-
-::: tip
-如果要看到`.git`，勾选资源管理器的`查看->隐藏的项目`
-
-如果删不掉它，可以使用`Shift + Del`
-:::
+- [Github](/1-code/0-base/github.md)
 
 那么作为准备，在 github 上创建新的仓库，并 clone 到本地你想编辑网站的位置
+
+
 
 ### Node.js 项目
 
 为了运行 Vuepress，需要安装 Node.js
 
 ::: tip 什么是 Node.js?
-[Node.js](/1-code/4-web/1-node) 就是运行在服务端，而不是浏览器的 JavaScript
+[Node.js](/1-code/4-web/1-node.md) 就是运行在服务端，而不是浏览器的 JavaScript
 
 VuePress 基于 Vue.js 基于 JavaScrpt，需要用 Node.js 运行
 
@@ -97,7 +75,7 @@ node_modules
 yarn init
 ```
 
-- 如果没有 yarn 或者 npm，参考[Node.js](/1-code/4-web/1-node)
+- 如果没有 yarn 或者 npm，参考[Node.js](/1-code/4-web/1-node.md)
 
 它会让你填一些信息，基本可以一路回车过去，目的是在当前目录下生成`package.json`，作为 node 项目的标记和配置
 
@@ -105,7 +83,9 @@ yarn init
 
 当然你也可以不运行这个命令，自己新建一个
 
-这是本网站的package配置(仅供参考)
+配置项的具体含义可以看[packages.json](/1-code/4-web/1-node.md#packages.json)
+
+这是本网站的package配置(仅供参考，不要乱填)
 
 ```json
 {
@@ -124,20 +104,16 @@ yarn init
     "vuepress": "^2.0.0-beta.53"
   },
   "dependencies": {
-    "vuepress-auto-bar": "^1.0.3"
+    "vuepress-auto-bar": "^2.0.1"
   }
 }
 ```
 
-需要注意的只有`scripts`，`devDependencies`，`dependencies`
-
-- 例如，使用`yarn docs:dev`可以运行`scripts`下的`docs:dev`
-    - 2个 script 是必要的，分别用于开发(调试)和生产(如果你想生成静态网站)
 - 使用`yarn add -D <名字>`可以在`devDependencies`下添加`<名字>`
     - -D 是--dev的缩写，意味着只在开发环境使用
         - 可以参考https://classic.yarnpkg.com/en/docs/cli/add#toc-commands
     - `vuepress`是vuepress自带的
-    - `@types/node`可以为 ts 提供类型支持
+    - `@types/node`可以为 ts 的内建模块提供类型支持
 - 使用`yarn add <名字>`可以在`dependencies`下添加`<名字>`
     - 这里的这个包是我自己写的
 
@@ -153,7 +129,7 @@ Vuepress 可以用 yarn 或 npm 简单地添加
 yarn add -D vuepress@next
 ```
 
-按照官方示例，在`package.json`内创建2个脚本
+按照官方教程，在`package.json`内创建2个脚本
 
 ```json
 {
@@ -166,6 +142,20 @@ yarn add -D vuepress@next
 }
 ```
 
+这意味着使用`yarn docs:dev`可以运行`vuepress dev docs`，使用`yarn docs:build`可以运行`vuepress build docs`
+
+这两个脚本分别用于开发(调试)和生产(如果你想生成静态网站)
+
+::: tip
+并不是非得写成这样才能运行
+
+比如你把`docs:dev`改成`dev`，那么使用`yarn dev`一样能运行
+
+但是不建议这么搞，不遵循约定可能会带来一些其它的麻烦
+:::
+
+继续跟着官方教程走
+
 创建 docs 文件夹(和`package.json`并列)，并且在里面放一个`README.md`或者`index.md`
 
 打开编辑，随便写点什么，比如
@@ -173,6 +163,18 @@ yarn add -D vuepress@next
 ```md
 # Hello VuePress
 ```
+
+::: tip
+`vuepress dev docs`的`docs`意味着 Vue 会以`docs`为 Vuepress 根目录，在其下检测配置文件和文档
+
+如果改成`vuepress dev`的话，可以不用创建`docs`目录，直接把`README.md`或`index.md`放在 Node 根目录下面
+
+这样在 Github 页面就可以是你的主页本身，并且 VSCode 的 MDX 插件也能正确跳转路径
+
+但是这会导致 vue 和 Node.js 的文件混杂起来
+
+而且由于不符合约定，在后续可能会遇到更多麻烦事，如果不怕的话可以尽管改
+:::
 
 到此为止，只需要 node.js 和这个项目内的文件，不需要网络，已经可以运行 Vuepress 了
 
@@ -205,4 +207,4 @@ $ vuepress dev docs
 
 ## 使用 Vercel 托管网站
 
-TODO:施工中
+进入
