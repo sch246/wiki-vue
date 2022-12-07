@@ -300,7 +300,7 @@ Vercel 不是国内的服务器，所以不需要备案，Vercel 网站本身也
 ::: warning
 不要图便宜去 Godaddy 买域名，便宜没好货
 
-https://www.zhihu.com/question/21054601
+[https://www.zhihu.com/question/21054601](https://www.zhihu.com/question/21054601)
 :::
 
 ### DNS 解析
@@ -334,7 +334,7 @@ CDN 加速可以用 [Cloudflare](/1-code/4-web/0-web/CDN.md#cloudflare)，不为
 
 这需要到域名注册商那修改域名服务器，把它们改成 Cloudflare 提供的域名服务器
 
-把 Cloudfalre 的 DNS 解析的代理全部开启，这意味着将不能直接访问到源服务器，而是 Cloudflare 的
+把 Cloudfalre 的 DNS 解析的代理全部开启，这意味着将不能直接访问到源服务器，而是 Cloudflare 分布在全球各地的，从而起到加速和保护的作用
 
 直接使用默认配置的话会出现重定向次数过多的问题，可以参考下面这个链接解决
 
