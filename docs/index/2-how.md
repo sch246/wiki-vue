@@ -41,6 +41,10 @@ Vue.js 是一个 [JavaScript](/1-code/4-web/0-base/2-js.md)(简称 JS) 框架
 
 - [Github](/1-code/0-base/github.md)
 
+> 注意不要使用QQ邮箱作为主邮箱，因为Vercel会自动拒绝使用QQ邮箱的账号。如果已经用QQ邮箱注册了GitHub，可以到Setting -> Emails里修改自己的主邮箱。
+>
+> ——[搭建个人网站（2）：Github和Vercel建站以及配置DNS](https://blog.ahrisy.com/2020/08/20/搭建个人网站（2）：Github和Vercel建站以及配置DNS/)
+
 那么作为准备，在本地创建个仓库并发布到 Github
 
 或者在 Github 上创建新的仓库，并 clone 到本地你想编辑网站的位置
@@ -209,7 +213,21 @@ $ vuepress dev docs
 
 - [Vercel](https://vercel.com)
 
-注册过程略
+Vercel 有以下好处
+
+- 免费
+- 国内能访问
+- 自动读取 Github 并更新
+- 支持自定义域名
+- 自动配置 https
+
+第一次登录可能会有些其他的东西，不过我不记得了
+
+可以看这个
+
+- [少数派 - Vercel ，开箱即用的网站管理小工具](https://sspai.com/post/63028)
+
+反正流程应该大差不差吧
 
 点击 `+ New Project`，如果是手机打开的可能只能看到一个显眼的黑色的`+`按钮，反正就是那个
 
@@ -263,15 +281,19 @@ Framework Preset，也就是预设，有`VuePress`可选，注意不要选成了
 
 为了使用其它域名进行访问，首先你需要有一个域名
 
+### 获取域名
+
 Vercel 不是国内的服务器，所以不需要备案，Vercel 网站本身也可以买域名，不过贵
 
 国内可以买域名的地方有阿里云或者腾讯云之类的
 
 国外的话，namesilo 和 name.com 比较好
 
+现在 Cloudflare 也能注册域名了
+
 我的是在Name.com买的
 
-可以使用这个网址来比较域名的价格
+可以使用这个网址来比较域名的价格，.com的话每年 50 块是正常价格
 
 - [https://www.domcomp.com/](https://www.domcomp.com/)
 
@@ -281,9 +303,78 @@ Vercel 不是国内的服务器，所以不需要备案，Vercel 网站本身也
 https://www.zhihu.com/question/21054601
 :::
 
+### DNS 解析
+
+- [涨姿势：聊聊DNS的解析流程](https://best.pconline.com.cn/yuanchuang/13218418.html)
+    - DNS - Domain Name System - 域名系统
+- [知乎 - 网址需要加www吗？](https://zhuanlan.zhihu.com/p/364693787)
+
 有了域名后去你的项目 -> settings -> Domains
 
-添加域名，然后按照提示操作就行了，这里略
+添加域名，然后按照提示操作
+
+
+一般情况下，你需要去购买域名的网站去设置 DNS 解析
+
+需要 1 个 A 记录和 1 个 CNAME 记录
+
+- A 记录会将域名解析到一个 IP 地址
+- CNAME 记录会将域名解析到另一个域名
+
+![](https://s2.loli.net/2022/12/07/zJlehU4jkNmyM3L.png)
+
+按照 Vercel 的提示填就行
+
+### CDN 加速
+
+- [C语言中文网 - CDN加速是什么？它是如何工作的？](http://c.biancheng.net/view/9021.html)
+    - CDN - Content Delivery Network - 内容分发网络
+
+CDN 加速可以用 [Cloudflare](/1-code/4-web/0-web/CDN.md#cloudflare)，不为啥，就因为免费
+
+这需要到域名注册商那修改域名服务器，把它们改成 Cloudflare 提供的域名服务器
+
+把 Cloudfalre 的 DNS 解析的代理全部开启，这意味着将不能直接访问到源服务器，而是 Cloudflare 的
+
+直接使用默认配置的话会出现重定向次数过多的问题，可以参考下面这个链接解决
+
+- [GEEKNABE - How to use Cloudflare CDN with Vercel](https://geeknabe.com/blog/how-to-use-cloudflare-cdn-with-vercel/)
+    - [How to Set Up Cloudflare with Vercel (formerly ZEIT)](https://levelup.gitconnected.com/how-to-set-up-cloudflare-with-zeit-93daa7d45dd)
+
+总之大致过程如下
+
+- 首先确认你的网站能用 Vercel 提供的免费域名访问
+- 进入 Cloudflare
+    - 网站可以切换到中文
+    - 添加站点
+    - 选择免费计划
+    - 查看 Cloudflare 找到的 DNS 记录
+        - 你可以删掉你不需要的记录
+    - 去你注册域名的地方
+        - 将域名服务器更改为 Cloudflare 所提供的
+    - 等待生效
+        - 这可能需要几个小时
+        - 虽然我几分钟就好了
+- 在 Cloudflare 设置 DNS 解析
+    - 在 Vercel 控制台应该能看到都生效了
+        - 但是访问会出现`重定向次数过多`
+    - SSL/TLS ->
+        - 至少设为`完全`
+            - 这很重要
+        - 边缘证书 ->
+            - 关闭`始终使用 HTTPS`
+    - 规则 ->
+        - 添加规则
+            - 若网站是`sch246.com`
+            - 匹配`*sch246.com/.well-known/*`
+            - 设`SSL`为`关`
+        - 添加规则
+            - 若网站是`sch246.com`
+            - 匹配`http://*sch246.com/*`
+            - 设为`始终使用 HTTPS`
+            - 确保优先级比上面那个低
+- 原理
+    - > 当Vercel构建项目时，构建过程的最后一步是颁发SSL证书。作为此步骤的一部分，Vercel发出HTTP请求到`<domain>/.well-known/acme-challenge`。如果此HTTP请求被重定向到HTTPS，Vercel将无法颁发SSL证书。
 
 ## 网站自定义
 
