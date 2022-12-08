@@ -4,14 +4,16 @@
 
 > ###### [sch246](/index/3-who.md) | Built with [VuePress](https://v2.vuepress.vuejs.org/zh/) | Hosted in [Vercel](https://vercel.com)
 
-::: warning 使用 Vercel + Github 托管意味着网站的所有内容，全部代码对所有人都是透明的，务必不要包含隐私信息
-比如你可以点击本站导航栏的 Github 链接查看本网站项目
-:::
+这个的意思是，我使用了 Vuepress 来构建网站(把网站所需要的生成出来)，使用了 Vercel 来托管网站(能从互联网访问)
 
 如果你不确信这是你想要的，可以参考
 
 - [为什么不是 ...?](https://v2.vuepress.vuejs.org/zh/guide/#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF)
-- [网站搭建分类](/1-code/4-web/0-web.md)
+- [网站搭建](/1-code/4-web/0-web.md)
+
+::: warning 使用 Vercel + Github 托管意味着网站的所有内容，全部代码对所有人都是透明的，务必不要包含隐私信息
+比如你可以点击本站导航栏的 Github 链接查看本网站项目
+:::
 
 搭建本网站的步骤如下:
 
@@ -19,7 +21,7 @@
 
 ## 使用 Vuepress 搭建网站
 
-以下是 Vuepress 的官网
+以下是 Vuepress 的官网，基本上，依照Vuepress官方教程就能很好地搭建一个最基本的网站了
 
 - [Vuepress v2](https://v2.vuepress.vuejs.org/zh/)
 

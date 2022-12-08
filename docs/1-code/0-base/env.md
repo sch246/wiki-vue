@@ -62,7 +62,7 @@ $env:Path
 
 ::: details 命令行方式(不建议)
 
-也可以用命令行的方式:[setx](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/setx)，但是 windows 命令行的问题很多很不好用
+也可以用命令行的方式:[setx](https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/setx)，但是 windows 命令行的问题很多很不好用
 
 建议安装其他的东西
 
