@@ -17,8 +17,11 @@ export default defineUserConfig({
     sidebar: bar.getSidebar(),
     sidebarDepth: 0,
     // editLink: false,
+    editLinkText:'编辑此页',
+    docsDir:'docs',
     lastUpdatedText: "最后更新于",
     contributors: false,
+    backToHome:'返回首页'
   }),
   markdown:{
     code:{
