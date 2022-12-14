@@ -1,14 +1,4 @@
-# Home
-
-Hi there~
-这是我的知识库。
-
-为了避免遗忘、便于分享，我在这里收录知识。
-请随意浏览～
-
-- [为什么](/index/1-why.md)
-- [怎么做](/index/2-how.md)
-- [关于我](/index/3-who.md)
+# 我是憨批！
 
 [![badge](https://img.shields.io/github/deployments/sch246/wiki/Production?label=Build&style=flat-square)](https://vercel.com/sch246/wiki/deployments)
 [![badge](https://img.shields.io/github/last-commit/sch246/wiki?color=FCD734&label=Last%20commit&style=flat-square)](https://github.com/sch246/wiki/commits/main)
