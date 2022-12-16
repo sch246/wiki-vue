@@ -71,49 +71,18 @@ v _code
     > s3                # 独立于bot也能有用的模块
     main.py             # bot真正的运行脚本，控制bot核心运行
 ```
-### [添加命令](/yz_bot/cmd)
 
 ## 基本命令
 
-### .test
+### [.test](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/test.py)
 
 基础命令，可以用来测试 bot 还在不在
 
-### .echo
+### [.echo](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/echo.py)
 
 基础命令，用于复读用户发送的消息
 
-### .cave
-
-回声洞，bot 的回声洞是全局的
-
-```
-.cave [<id:int>]  # 获取一条消息
-.cave add
- : <msg>    # 放入一条消息
- | || <msg> # 放入一条消息
-```
-
-### .answer
-
-答案之书，随机返回一条答案
-
-::: tip
-
-可以通过`.link`命令使得答案之书可以被便捷触发
-
-例如我设置的就是
-
-```
-.link re 答案之书
-(柚子(告诉我|我该)怎么办|无所不知伟大的柚子啊，请为我指引吧！|为什么不问问神奇柚子呢|柚子柚子告诉我)
-===
-cmds.modules['answer'].run('')
-```
-
-:::
-
-### .reboot(需要权限)
+### [.reboot](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/reboot.py)(需要权限)
 
 用于远程重启 bot，重启后会应用对源代码的更改
 
@@ -127,11 +96,11 @@ bot 在运行期间不会读取源代码，也就是甚至可以在运行期间�
 >
 > 用`.py`命令做不到上述效果，因为`.py`是多线程，`exit`只会关掉自己的线程
 
-### .shutdown(需要权限)
+### [.shutdown](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/shutdown.py)(需要权限)
 
 同上，bot会在下次启动时发出问好
 
-### .op(需要权限)
+### [.op](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/op.py)(需要权限)
 
 ```
 .op [del] (<qq号:int> | <at某人:cq[at]>)+
@@ -143,7 +112,7 @@ bot 在运行期间不会读取源代码，也就是甚至可以在运行期间�
 
 `.op`命令不能解除 master 的权限，但是防君子不防小人
 
-### file(需要权限)
+### [.file](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/file.py)(需要权限)
 
 用于操作文件的命令，可以被`.py`命令取代，不过还是姑且留着
 
@@ -169,13 +138,15 @@ get 和 send 和 to 用来发送和接收文件，不过似乎不怎么能用
 
 ## 核心命令
 
-### .py(需要权限)
+### [.py](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/py.py)(需要权限)
 
 ```
 .py <内容>
 ```
 
 在多线程运行 python 代码，可以调用 bot 的几乎任何代码，发送和接收消息，管理数据
+
+可以直接调用这些文件内定义的东西: [py.py](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/py.py) [main.py](https://github.com/sch246/yz_bot/blob/main/_code/main.py) [funcs.py](https://github.com/sch246/yz_bot/blob/main/_code/funcs.py) [pyload.py](https://github.com/sch246/yz_bot/blob/main/data/pyload.py)
 
 运行环境在一次运行期间是保存的，你可以先定义函数或者赋值，然后在之后的消息中使用它
 
@@ -189,7 +160,7 @@ get 和 send 和 to 用来发送和接收文件，不过似乎不怎么能用
 
 在`.py`内使用`print`和`input`会输出和读取聊天区域的消息，但是这不意味着可以在`pyload.py`里这么做
 
-### .link(需要权限)
+### [.link](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/link.py)(需要权限)
 
 如若 bot 接收到的消息没有触发任何玩意(`^`，阻塞，命令，bash运行)，那么会通过 links 进行处理
 
@@ -224,6 +195,16 @@ user:
 bot:
     user 投了 1 个 6 面骰，总数为 5
 ```
+
+冒号后面的东西看起来是类型，不过实际上可以是任何变量
+
+一些预设的可以在这里查看: [funcs.py](https://github.com/sch246/yz_bot/blob/main/_code/funcs.py)
+
+除了自身定义的东西外，能直接调用所有`.py`能直接调用的
+
+顺便，在这个link之前执行的其它link创建的变量也是可以直接用的
+
+实际替换的函数是在这里定义的: [str_tool](https://github.com/sch246/yz_bot/blob/main/_code/s3/str_tool.py)
 
 在`.py`中可以使用`links`获取 links 列表并进行编辑，不过也可以使用`.link`命令来编辑 links
 
@@ -309,3 +290,109 @@ action 紧挨着 cond 成功时执行，原则上不允许 conds 使用 send,rec
 
 使用 `catch` 可以根据对应的文本，找到这个文本能触发哪些 links，并且终结于哪些 links，debug用
 
+## 额外命令
+
+额外命令是附加的命令，随时可能变动
+
+### [.answer](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/answer.py)
+
+[答案之书](https://www.bing.com/search?q=%E7%AD%94%E6%A1%88%E4%B9%8B%E4%B9%A6)
+
+建议把触发放进links里
+
+```
+.link re 答案之书
+(柚子(告诉我|我该)怎么办|无所不知伟大的柚子啊，请为我指引吧！|为什么不问问神奇柚子呢|柚子柚子(告诉我)?)
+===
+getcmd('answer').run('')
+```
+
+### [.cave](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/cave.py)
+
+回声洞
+
+格式：
+
+```
+.cave [<id:int>]  #获取一条消息
+.cave add
+ : <msg>    # 放入一条消息
+ | || <msg> # 放入一条消息
+.cave del [<id:int>] # 删除一条消息，默认为上一条自己放的消息
+```
+
+回声洞是全局的，会存储发送者，发送时间和发送群(如果是群聊)
+
+显示的格式为
+```
+# 于群聊设置
+{i}:
+{text}
+    ——{sender} 于 {group}，
+  {time}
+```
+```
+# 于私聊设置
+{i}:
+{text}
+    ——{sender} 于 {time}
+```
+
+使用.py的setname和setgroupname可以影响记录在其中的名字和群名
+
+为了让没有权限的人也能修改自己的名字，可以将它设置在link里
+
+```
+.link re
+叫我{name:.*}
+===
+setname('{:name}')
+'你好，{:name}'
+```
+
+### [.jrrp](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/jrrp.py)
+
+今日人品
+
+从0到100之间随机，每人每天只能随机一次
+
+后续再次调用只是返回今天第一次随机出的结果
+
+### [.jrgz](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/jrgz.py)
+
+今日鸽子
+
+仅在群内调用有效，每天可以从群里随机 roll 个人当鸽子
+
+默认不会 at 对方，要加上 at 可以使用 `cq.cq('at',qq=user_id)`
+
+同今日人品一样每天只能随机一次
+
+### [.kmmm](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/kmmm.py)
+
+随机一张 ケモミミちゃん 的作者的作品
+
+### [.setu](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/setu.py)
+
+随机色图，由于真的会把 r18 图片发(不)出来所以注意风控
+
+### [.js](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/js.py)(需要权限)
+
+运行 JavaScript 代码，需要服务器上面安装了 screen 和 node
+
+基于 node 的 [REPL](https://www.bing.com/search?q=REPL)
+
+### [.nim](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/nim.py)(需要权限)
+
+运行 nim 代码，需要服务器上面安装了 nim
+
+基本原理非常简单粗暴
+
+### [.mcf](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/mcf.py)
+
+编辑 mcfunction 文件，需要[指定 Minecraft 文件夹路径](https://github.com/sch246/yz_bot/blob/main/data/pyload.py)
+
+
+### [.change](https://github.com/sch246/yz_bot/blob/main/_code/bot/cmds/change.py)
+
+随机起卦 ##赛博算卦##

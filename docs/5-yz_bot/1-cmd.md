@@ -1,6 +1,4 @@
-# 添加命令的方法(可跳过)
-
-
+# 添加命令的方法
 
 ## 开始
 
@@ -108,7 +106,7 @@ s2, last = read_params(last)
 a, b, c, last = read_params(last, 3)
 ```
 
-### 关于当前状况的更多信息:cache
+### 关于当前状况的更多信息:[cache](https://github.com/sch246/yz_bot/blob/main/_code/bot/cache.py)
 
 `from main import cache` ，指`bot.cache`
 
@@ -116,7 +114,9 @@ a, b, c, last = read_params(last, 3)
 
 其中的`get`和`set`函数可以用于存取其中的东西
 
-通过`cache.get_last()`，可以获得最后一条被记录的消息字典，而在无异步的 bot 这里，就等价于是触发命令的这条消息字典
+通过`cache.get_last()`，可以获得最后一条被记录的消息字典
+
+通过`cache.thismsg()`可以获取当前线程需要处理的消息字典，它也可以用来设置消息字典
 
 `cache.msgs`存储了bot存储的所有的消息字典，每个聊天区域的消息数不超过256条(默认)，这是它记录消息的核心
 
@@ -130,7 +130,7 @@ a, b, c, last = read_params(last, 3)
 
 `get_one(msg,f,i)`用于在当前聊天区域的最近列表内查找满足条件的最近一条消息，反正别想当历史消息查找用就行了，`f`是一个函数，接收消息字典返回布尔值
 
-其它的自己看源代码去
+[其它的自己看源代码去](https://github.com/sch246/yz_bot/blob/main/_code/bot/cache.py)
 
 ## 等待消息
 
@@ -140,7 +140,7 @@ a, b, c, last = read_params(last, 3)
 
 > 由于不想让每个函数加上async这种玩意，我采用手动yield来在单线程内实现异步
 
-其它的已经自动处理好了）只要`run`函数返回的是个生成器，那么就会被处理
+其它的已经处理好了）只要`run`函数返回的是个生成器，那么就会被处理
 
 以下展示分条接收参数的命令如何创建
 
