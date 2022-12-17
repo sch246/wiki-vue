@@ -23,7 +23,7 @@ export default defineUserConfig({
     repo: "sch246/wiki-vue",
     navbar: bar.getNavbar(),
     sidebar: sidebars,
-    sidebarDepth: 0,
+    sidebarDepth: 2,
     // editLink: false,
     editLinkText:'编辑此页',
     docsDir:'docs',
