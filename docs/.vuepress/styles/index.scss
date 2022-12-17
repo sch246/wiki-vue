@@ -240,27 +240,22 @@ html {
 
 
 
-scover {
-    color: var(--c-text);
-    background: var(--c-text);
-}
-
-cover {
+span.cover {
     color: var(--c-text);
     background: var(--c-text);
     transition: color 0.1s linear;
 }
 
-cover a {
+span.cover a {
     color: var(--c-text);
     background: var(--c-text);
     transition: color 0.1s linear;
 }
 
-cover:hover {
+span.cover:hover {
     color: var(--c-bg);
 }
 
-cover a:hover {
+span.cover a:hover {
     color: var(--c-text-accent);
 }

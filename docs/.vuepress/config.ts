@@ -39,7 +39,7 @@ export default defineUserConfig({
   extendsMarkdown: (md) => {
     const f = md.renderer.rules.text ?? ((tokens, idx)=>tokens[idx].content)
     md.renderer.rules.text = (...args)=>f(...args)
-      .replace(/##(.+)##/g, '<cover title="你知道的太多了">$1</cover>')
+      .replace(/##(.+)##/g, '<span title="你知道的太多了" class="cover">$1</span>')
   },
   plugins: [
     registerComponentsPlugin({
