@@ -1,4 +1,4 @@
-import { defineUserConfig, PluginObject } from "vuepress";
+import { defineUserConfig } from "vuepress";
 import { defaultTheme } from "@vuepress/theme-default";
 
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
