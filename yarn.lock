@@ -249,6 +249,11 @@
   resolved "https://registry.yarnpkg.com/@kurkle/color/-/color-0.3.1.tgz#ef72bc8022ccf77cdd2715097f062ee591ec145c"
   integrity sha512-hW0GwZj06z/ZFUW2Espl7toVDjghJN+EKqyXzPSV8NV89d5BYp5rRMBJoc+aUN0x5OXDMeRQHazejr2Xmqj2tw==
 
+"@lit/reactive-element@^1.3.0", "@lit/reactive-element@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-1.5.0.tgz#344cc33f2d1491d094b8ef824a9fe31d150d2375"
+  integrity sha512-fQh9FDK0LPTwDk+0HhSZEtb8K0LTN1wXerwpGrWA+a8tWulYRDLI4vQDWp4GOIsewn0572KYV/oZ3+492D7osA==
+
 "@mdit-vue/plugin-component@^0.11.1":
   version "0.11.1"
   resolved "https://registry.npmjs.org/@mdit-vue/plugin-component/-/plugin-component-0.11.1.tgz"
@@ -412,6 +417,11 @@
   version "18.11.9"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.11.9.tgz"
   integrity sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==
+
+"@types/trusted-types@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/trusted-types/-/trusted-types-2.0.2.tgz#fc25ad9943bcac11cceb8168db4f275e0e72e756"
+  integrity sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg==
 
 "@types/web-bluetooth@^0.0.16":
   version "0.0.16"
@@ -887,6 +897,16 @@
     "@vueuse/shared" "9.7.0"
     vue-demi "*"
 
+"@vueuse/core@^9.7.0":
+  version "9.8.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-9.8.2.tgz#a142281bb33368c74668a180a813c7c8d91f89d8"
+  integrity sha512-aWiCmcYIpPt7xjuqYiceODEMHchDYthrJ4AqI+FXPZrR23PZOqdiktbUVyQl2kGlR3H4i9UJ/uimQrwhz9UouQ==
+  dependencies:
+    "@types/web-bluetooth" "^0.0.16"
+    "@vueuse/metadata" "9.8.2"
+    "@vueuse/shared" "9.8.2"
+    vue-demi "*"
+
 "@vueuse/metadata@9.6.0":
   version "9.6.0"
   resolved "https://registry.npmjs.org/@vueuse/metadata/-/metadata-9.6.0.tgz"
@@ -896,6 +916,11 @@
   version "9.7.0"
   resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-9.7.0.tgz#0aeaaaba52d9cc9aa5b2ad2e129e5f6fbac2c44c"
   integrity sha512-M7WsAgw28FNtTH0bzsGuHEtJOPJqPpyeHS6PHq+8UesLgNjZ9waMAntiUrgUQlxt09M4i2lH7y9sRi0jkfeXGA==
+
+"@vueuse/metadata@9.8.2":
+  version "9.8.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/metadata/-/metadata-9.8.2.tgz#864905e351a88165717c66d35d4b59a84bed2ae1"
+  integrity sha512-N4E/BKS+9VsUeD4WLVRU1J2kCOLh+iikBcMtipFcTyL204132vDYHs27zLAVabJYGnhC0dIVGdhg9pbOZiY2TQ==
 
 "@vueuse/shared@9.6.0":
   version "9.6.0"
@@ -910,6 +935,23 @@
   integrity sha512-pwmt1y3TJ2s5KqWmkv9ZKEV59GwuZQZk8XLiU+hGswz0jej318ozbea9E4A/A50ksyM26swSFr7sZ9llNPsZHg==
   dependencies:
     vue-demi "*"
+
+"@vueuse/shared@9.8.2":
+  version "9.8.2"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-9.8.2.tgz#fd05866e5626218c9b0758b0422c666676cc4559"
+  integrity sha512-ACjrPQzowd5dnabNJt9EoGVobco9/ENiA5qP53vjiuxndlJYuc/UegwhXC7KdQbPX4F45a50+45K3g1wNqOzmA==
+  dependencies:
+    vue-demi "*"
+
+"@waline/client@^2.14.1":
+  version "2.14.2"
+  resolved "https://registry.yarnpkg.com/@waline/client/-/client-2.14.2.tgz#01d6849e29849ee0ec0b431854a5b41bd1d17be2"
+  integrity sha512-TICf1btV8n9dZrABTzWEijltjHs0GlbkkSoIcfrbFMvHmtfIgjxpqL030aWPeZ9V0H80hCnDiwPvk0P3URxmGQ==
+  dependencies:
+    "@vueuse/core" "^9.7.0"
+    autosize "^5.0.2"
+    marked "^4.2.4"
+    vue "^3.2.45"
 
 ansi-colors@^4.1.1:
   version "4.1.3"
@@ -959,6 +1001,11 @@ autoprefixer@^10.4.12:
     normalize-range "^0.1.2"
     picocolors "^1.0.0"
     postcss-value-parser "^4.2.0"
+
+autosize@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/autosize/-/autosize-5.0.2.tgz#0a327c200dda4a1742817e94dcb8af5700685689"
+  integrity sha512-FPVt5ynkqUAA9gcMZnJHka1XfQgr1WNd/yRfIjmj5WGmjua+u5Hl9hn8M2nU5CNy2bEIcj1ZUwXq7IOHsfZG9w==
 
 balloon-css@^1.2.0:
   version "1.2.0"
@@ -1895,6 +1942,13 @@ get-stream@^6.0.1:
   resolved "https://registry.npmjs.org/get-stream/-/get-stream-6.0.1.tgz"
   integrity sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg==
 
+giscus@^1.2.4:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/giscus/-/giscus-1.2.6.tgz#0ccdf3bd4e936da95d2e2708446850c1e5ec4496"
+  integrity sha512-VqMWmCdlUk9krX2M3oMgn9/Y6XEbRXRHtfhNTuRn/AdeGOeko54OFEIsizQ/nYWymuUNGZR48KGptCtYL77rtA==
+  dependencies:
+    lit "^2.5.0"
+
 glob-parent@^5.1.2, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz"
@@ -2171,6 +2225,30 @@ linkify-it@^4.0.1:
   dependencies:
     uc.micro "^1.0.1"
 
+lit-element@^3.2.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-3.2.2.tgz#d148ab6bf4c53a33f707a5168e087725499e5f2b"
+  integrity sha512-6ZgxBR9KNroqKb6+htkyBwD90XGRiqKDHVrW/Eh0EZ+l+iC+u+v+w3/BA5NGi4nizAVHGYvQBHUDuSmLjPp7NQ==
+  dependencies:
+    "@lit/reactive-element" "^1.3.0"
+    lit-html "^2.2.0"
+
+lit-html@^2.2.0, lit-html@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-2.5.0.tgz#9d4c0bb3652a6b10bc4ccdb627dfa9eff1215474"
+  integrity sha512-bLHosg1XL3JRUcKdSVI0sLCs0y1wWrj2sqqAN3cZ7bDDPNgmDHH29RV48x6Wz3ZmkxIupaE+z7uXSZ/pXWAO1g==
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+lit@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/lit/-/lit-2.5.0.tgz#3a425d69ff8483effb2026957b86ae45de0bc51a"
+  integrity sha512-DtnUP6vR3l4Q8nRPPNBD+UxbAhwJPeky+OVbi3pdgMqm0g57xFSl1Sj64D1rIB+nVNdiVVg8YxB0hqKjvdadZA==
+  dependencies:
+    "@lit/reactive-element" "^1.5.0"
+    lit-element "^3.2.0"
+    lit-html "^2.5.0"
+
 lodash-es@^4.17.21:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.21.tgz#43e626c46e6591b7750beb2b50117390c609e3ee"
@@ -2221,6 +2299,11 @@ markdown-it@^13.0.1:
     linkify-it "^4.0.1"
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
+
+marked@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.2.4.tgz#5a4ce6c7a1ae0c952601fce46376ee4cf1797e1c"
+  integrity sha512-Wcc9ikX7Q5E4BYDPvh1C6QNSxrjC9tBgz+A/vAhp59KXUgachw++uMvMKiSW8oA85nopmPZcEvBoex/YLMsiyA==
 
 mathjax-full@^3.2.2:
   version "3.2.2"
@@ -2736,6 +2819,11 @@ tslib@^2.2.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.1.tgz#0d0bfbaac2880b91e22df0768e55be9753a5b17e"
   integrity sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==
 
+twikoo@^1.6.8:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/twikoo/-/twikoo-1.6.8.tgz#a7ad7dd52d9abf5478dd277c2ef1d5adc0e3a223"
+  integrity sha512-SkwO647kK2Ss+L2myp+7JmzmXAGsLt1e7zwTZdKuifDywgFfnaArPWkfp7ruvVBLb+13KQUsCneBUR5XzkV4Bg==
+
 uc.micro@^1.0.1, uc.micro@^1.0.5:
   version "1.0.6"
   resolved "https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz"
@@ -2813,6 +2901,21 @@ vuepress-auto-bar@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/vuepress-auto-bar/-/vuepress-auto-bar-2.0.2.tgz"
   integrity sha512-5NAzO8RztrCbfj4ed7H5MHkGdIvy8JwBkaVRH0s6fkmj5IPIG19uwEzsJumhJA6Logz9oCFsVfdpLXVSFwmjEg==
+
+vuepress-plugin-comment2@^2.0.0-beta.143:
+  version "2.0.0-beta.143"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-comment2/-/vuepress-plugin-comment2-2.0.0-beta.143.tgz#72dc937db89da1058058c2dd4f68947705f25dda"
+  integrity sha512-Dtl6Mcdds21/s8qVeJqSSGOQGU0hHLEQlsQZMKdTpu2xBijdR6He21UdKfaayD0cEYwoqSfkym3mqkVb1B4fFw==
+  dependencies:
+    "@vuepress/client" "2.0.0-beta.59"
+    "@vuepress/utils" "2.0.0-beta.59"
+    "@waline/client" "^2.14.1"
+    giscus "^1.2.4"
+    twikoo "^1.6.8"
+    vue "^3.2.45"
+    vue-router "^4.1.6"
+    vuepress-plugin-sass-palette "2.0.0-beta.143"
+    vuepress-shared "2.0.0-beta.143"
 
 vuepress-plugin-md-enhance@^2.0.0-beta.143:
   version "2.0.0-beta.143"
