@@ -33,3 +33,8 @@ usermod vcs -g admin
 usermod vcs -g vcs
 ```
 
+## 获取文件夹权限
+
+```bash
+sudo chmod -R 777 文件夹路径名  -- -R可以让文件夹下的子文件夹也被赋予上传的权限
+```
