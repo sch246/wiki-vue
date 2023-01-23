@@ -50,3 +50,12 @@ sudo apt-get install zlib1g-dev libsqlite3-dev tk-dev
 sudo apt-get install libssl-dev openssl
 sudo apt-get install libffi-dev
 ```
+
+收尾，为什么要这么做可以参考[优先级](优先级.md)
+
+```
+ln -sf /usr/local/python3/bin/python3.10 /usr/local/bin/python3
+ln -sf /usr/local/python3/bin/pip3 /usr/local/bin/pip3
+hash -d python3
+hash -d pip3
+```
