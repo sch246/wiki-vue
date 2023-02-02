@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>卦</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <span> 背景</span>
+    <input
+      id="背景"
+      type="text"
+      placeholder="#eeeeee"
+      value="#eeeeee"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <span> 阳</span>
+    <input
+      id="阳"
+      type="text"
+      placeholder="white"
+      value="white"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <span> 阴</span>
+    <input
+      id="阴"
+      type="text"
+      placeholder="black"
+      value="black"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <span> 层数</span>
+    <input
+      id="层数"
+      type="text"
+      placeholder="6"
+      value="6"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <span> 层数计算式</span>
+    <input
+      id="层数计算式"
+      type="text"
+      placeholder="500-(400/(layer+1))"
+      value="500-(400/(layer+1))"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <span> 是否反转</span>
+    <input
+      id="是否反转"
+      type="checkbox"
+      checked="true"
+      oninput="show()"
+      onpropertychange="show()"
+    />
+    <button onclick="show()">确认</button>
+    <canvas id="drawing" width="1920" height="1080"></canvas>
+  </body>
+
+  <script>
+    canvas = document.getElementById("drawing");
+    var width = (canvas.width = window.innerWidth);
+    var height = (canvas.height = window.innerHeight);
+    if (!canvas.getContext) {
+      alert("天哪，你的浏览器不支持canvas！");
+    }
+    ctx = canvas.getContext("2d");
+
+    function getR(layer) {
+      return eval(document.getElementById("层数计算式").value);
+    }
+
+    function R(degrees, reflect) {
+      return ((reflect ? 90 - degrees : degrees - 90) * Math.PI) / 180;
+    }
+
+    function pie(r, start, length, color, is_clock = false, reflect = false) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      end = start + length;
+      start = is_clock ? start : 360 - start;
+      end = is_clock ? end : 360 - end;
+      // 如果r=0, 那么 c=0:0 c=1:1
+      // 如果r=1, 那么 c=0:1 c=1:0
+      ctx.arc(
+        960,
+        540,
+        r,
+        R(start, reflect),
+        R(end, reflect),
+        reflect ^ !is_clock
+      );
+      ctx.lineTo(960, 540);
+      ctx.fill();
+    }
+    function ef(S, n = null, i = 0, flip = false) {
+      if (n == null) n = S;
+      if (n == -1) {
+        return;
+      } else {
+        ef(S, n - 1, i * 2, flip);
+        if (if_flip && n == S) {
+          ef(S, n - 1, i * 2 + 1, true);
+        } else {
+          ef(S, n - 1, i * 2 + 1, flip);
+        }
+      }
+      x = i * 2 ** n;
+      if (n == S) {
+        // return
+        pie(
+          getR(S - n),
+          (x * 360) / 2 ** S,
+          2 ** (n - S) * 360,
+          background,
+          false,
+          flip
+        );
+      } else if (i % 2 == 0) {
+        // x=i=0, n=6时, start=0, len=360
+        // x=i=0, n=5时, start=0, len=180
+        // i=1,x=2**5时, start=180,len=180
+        pie(
+          getR(S - n),
+          (x * 360) / 2 ** S,
+          2 ** (n - S) * 360,
+          阳,
+          false,
+          flip
+        );
+      } else {
+        pie(
+          getR(S - n),
+          (x * 360) / 2 ** S,
+          2 ** (n - S) * 360,
+          阴,
+          false,
+          flip
+        );
+      }
+    }
+
+    function show() {
+      //参数
+      background = document.getElementById("背景").value;
+      阳 = document.getElementById("阳").value;
+      阴 = document.getElementById("阴").value;
+      n = document.getElementById("层数").value;
+      if_flip = document.getElementById("是否反转").checked;
+
+      //填充背景
+      ctx.fillStyle = background;
+      ctx.fillRect(0, 0, width, height);
+
+      ef(n);
+    }
+    show();
+  </script>
+</html>
