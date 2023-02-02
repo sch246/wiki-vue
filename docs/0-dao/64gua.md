@@ -12,7 +12,7 @@
 
 在了解先天六十四卦之前，得先了解先天八卦长什么样，上百度搜搜就能找到
 
-![这里面还有方位和五行属性啥的，不用管，和当前目的无关](https://i0.hdslb.com/bfs/article/d7da7a38ab678c9cee8ffb74a37aab00cc0f097a.png)
+![这里面还有方位和五行属性啥的，不用管，和当前目的无关](https://files.catbox.moe/gcrfsn.png)
 
 非常显然是阴阳两爻进行排列组合得到的，全部可能的排列加起来有2^3=8总共8个卦
 
@@ -60,7 +60,7 @@ for a in [阳,阴]:
 
 按照这个顺序，它是这样排列的
 
-![从上往下，先左后右](https://i0.hdslb.com/bfs/article/de75bb877c149a5633b1b313c40b2e604c572af0.png)
+![从上往下，先左后右](https://files.catbox.moe/dqme4i.png)
 
 方向是从上往下，先左后右的
 
@@ -68,7 +68,7 @@ for a in [阳,阴]:
 
 我觉得应该可以由7再指向0
 
-![画蛇添足（不是）](https://i0.hdslb.com/bfs/article/15bdeaccdc63e43252876ab5b023683b169a58dd.png@839w_696h_progressive.webp)
+![画蛇添足（不是）](https://files.catbox.moe/5p45eq.png)
 
 嘛，姑且当我的碎碎念吧
 
@@ -76,7 +76,7 @@ for a in [阳,阴]:
 
 首先上百度搜一搜先天六十四卦
 
-![太密了看着不太舒服，，](https://i0.hdslb.com/bfs/article/57eab61a0cef8964eaa92d5e6f5cfc1b9258333e.png@942w_942h_progressive.webp)
+![太密了看着不太舒服，，](https://files.catbox.moe/2k7htn.png)
 
 那么也很显然64卦也是阴阳两爻排列组合而成，全部的排列就是2^6=64个卦
 
@@ -187,7 +187,7 @@ def 二分(n, 卦=''):
 
 你可以发现它对应的顺序是这样的
 
-![](https://i0.hdslb.com/bfs/article/b3fa89a9027447d69e9168cca5f09b2a21ae7d06.png@942w_939h_progressive.webp)
+![](https://files.catbox.moe/8t2aln.png)
 
 和先天八卦一模一样的顺序欸！同时对应的数字则是从0依次增加到了63
 
@@ -199,13 +199,13 @@ def 二分(n, 卦=''):
 
 我觉得这个同样可以画一条线从尾到头
 
-![对称了](https://i0.hdslb.com/bfs/article/effd5a75f3df78099257f91114371337a20f4eb3.png@942w_941h_progressive.webp)
+![对称了](https://files.catbox.moe/kyi60t.png)
 
 这样的话两条从下往上的箭头也对称了
 
 咱可以再写段代码把这个东西图形化显示出来
 
-[打开这里](卦.html)
+[打开这里](/gua.html)
 
 可以先看外面那个大圈，从最内层的爻开始看，那对应着二进制中的最高位
 
@@ -215,7 +215,7 @@ def 二分(n, 卦=''):
 
 理所当然的嘛，毕竟如果完全按照顺时针或者逆时针排卦，就只是单纯的阴阳细分而已
 
-![这个二分在上面的脚本中的体现就是递归](https://i0.hdslb.com/bfs/article/4085b5b463ac259b1fd1e8b26c6bfe24a5ddfe65.png@942w_326h_progressive.webp)
+![这个二分在上面的脚本中的体现就是递归](https://files.catbox.moe/hlzoo6.png)
 
 这个对称是因为，除了初爻之外，剩下的部分的细分都是完全一致的
 
