@@ -15,8 +15,8 @@
     <input
       id="背景"
       type="text"
-      placeholder="#eeeeee"
-      value="#eeeeee"
+      placeholder="设置颜色"
+      value="gray"
       oninput="show()"
       onpropertychange="show()"
     />
@@ -24,7 +24,7 @@
     <input
       id="阳"
       type="text"
-      placeholder="white"
+      placeholder="设置颜色"
       value="white"
       oninput="show()"
       onpropertychange="show()"
@@ -33,7 +33,7 @@
     <input
       id="阴"
       type="text"
-      placeholder="black"
+      placeholder="设置颜色"
       value="black"
       oninput="show()"
       onpropertychange="show()"
@@ -42,17 +42,17 @@
     <input
       id="层数"
       type="text"
-      placeholder="6"
+      placeholder="消耗会指数增长"
       value="6"
       oninput="show()"
       onpropertychange="show()"
     />
-    <span> 层数计算式</span>
+    <span> 半径计算式</span>
     <input
-      id="层数计算式"
+      id="半径计算式"
       type="text"
-      placeholder="500-(400/(layer+1))"
-      value="500-(400/(layer+1))"
+      placeholder="用layer计算半径"
+      value="500-(400*0.5**(layer))"
       oninput="show()"
       onpropertychange="show()"
     />
@@ -64,7 +64,6 @@
       oninput="show()"
       onpropertychange="show()"
     />
-    <button onclick="show()">确认</button>
     <canvas id="drawing" width="1920" height="1080"></canvas>
   </body>
 
@@ -78,7 +77,7 @@
     ctx = canvas.getContext("2d");
 
     function getR(layer) {
-      return eval(document.getElementById("层数计算式").value);
+      return eval(document.getElementById("半径计算式").value);
     }
 
     function R(degrees, reflect) {
